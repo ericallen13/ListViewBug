@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewBugExample.Views.MainPage"
+              xmlns:cards="clr-namespace:ExecutiveReportingXamarin.Controls"
+             Title="{Binding Title}"
+             x:Name="Main">
+
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Gray">
+
+       
+      
+        <cards:CardViewExtended ItemsSource="{Binding BusinessList}"  VerticalOptions="CenterAndExpand"  HorizontalOptions="FillAndExpand" IsCyclical="True" IsNextItemPanInteractionEnabled="True" IsPrevItemPanInteractionEnabled="True"  >
+
+
+            <cards:CardViewExtended.ItemTemplate>
+
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ListView HorizontalOptions="FillAndExpand" ItemsSource="{Binding BindingContext.Metrics, Source={x:Reference Main}}" VerticalOptions="FillAndExpand" HasUnevenRows="True" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+
+
+
+                                            <Grid HorizontalOptions="FillAndExpand" RowSpacing="0" Padding="0,10,0,10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2.3*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout BackgroundColor="Red" Orientation="Vertical" Grid.Row="0" VerticalOptions="FillAndExpand" Padding="0,0,0,2" HorizontalOptions="FillAndExpand" >
+                                                    <Label Text="asasdfd" VerticalTextAlignment="End" HorizontalTextAlignment="Start" TextColor="#0093CA" FontSize="15"  />
+
+
+                                                    <Label Text="asd" VerticalOptions="FillAndExpand"  VerticalTextAlignment="Start"  FontSize="13" TextColor="#666666" Grid.Column="0" WidthRequest="80" />
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" BackgroundColor="Pink" VerticalOptions="FillAndExpand">
+                                                    <Label Text="asdasd"  Grid.Row="0" TextColor="Black" FontSize="14"  HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <Label Text="asd" BackgroundColor="Orange" FontSize="14" VerticalOptions="FillAndExpand" TextColor="red"  VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Grid.Column="2"/>
+                                                <Label Text="asd" FontSize="14" BackgroundColor="Blue" VerticalOptions="FillAndExpand" TextColor="red"  VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"  Grid.Column="3" IsVisible="{Binding BindingContext.WideScreen, Source={x:Reference Main}}" />
+                                                <Label Text="asd"  FontSize="14" BackgroundColor="Green" VerticalOptions="FillAndExpand" TextColor="red" VerticalTextAlignment="Center"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"  Grid.Column="4" IsVisible="{Binding BindingContext.WideScreen, Source={x:Reference Main}}" />
+
+                                            </Grid>
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </cards:CardViewExtended.ItemTemplate>
+        </cards:CardViewExtended>
+
+    </StackLayout>
+
+</ContentPage>
